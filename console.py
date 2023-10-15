@@ -15,17 +15,15 @@ new_classes = {'BaseModel': BaseModel, 'User': User, 'State': State,
                'Amenity': Amenity, 'Place': Place, 'City': City,
                'Review': Review}
 
-
-
 # Declaring the HBNBCommand class
 
-class HBNBCommand(cmd.Cmd):
 
+class HBNBCommand(cmd.Cmd):
     """
     command interpreter for Airbnb clone.
 
     """
-    
+
     prompt = "(hbnb) "
 
     def do_EOF(self, line):
@@ -38,11 +36,11 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
 
-    def emptycmdline(self):
+    def emptyline(self):
         """ nothing should be executed. """
         pass
 
-    def do_createcmd(self, line):
+    def do_create(self, line):
         """Creates command for creating new User"""
         splitargline = split(line)
         if not splitargline:
@@ -53,7 +51,6 @@ class HBNBCommand(cmd.Cmd):
             new_instance = new_classes[splitargline[0]]()
             print(new_instance.id)
             new_instance.save()
-
 
     def do_show(self, line):
         """Show cmd to display an instance based on the class name and id"""
@@ -72,9 +69,8 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print(objs[new_instance])
 
-
     def do_destroy(self, line):
-        """Delete cmd that deletes an instance based on the class name and id"""
+        """Delete cmd that deletes an instance based on class name and id"""
         splitargline = split(line)
 
         if not splitargline:
@@ -96,7 +92,7 @@ class HBNBCommand(cmd.Cmd):
                 models.storage.save()
 
     def do_all(self, line):
-        """All cmd to print all the instances based or not including class name"""
+        """All cmd to print all the instances based on including class name"""
         str_list = []
 
         if not line:
@@ -142,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
                 models.storage.save()
 
     def default(self, line):
-        """Parses and interpretates a cmdline if not found among regular the commands"""
+        """Parses & interprets a cmdline if nt fnd among regx the commands"""
         count = 0
         splitargline = line.split('.', 1)
         if len(splitargline) >= 2:
@@ -150,7 +146,7 @@ class HBNBCommand(cmd.Cmd):
             """ Execute the <class name>.all()"""
             if line[0] == 'all':
                 self.do_all(splitargline[0])
-                
+
                 """Executes the <class name>.count() """
             elif line[0] == 'count':
                 for key in models.storage.all():
