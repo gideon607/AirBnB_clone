@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """
-BaseModel - Module
-BaseModel Main parent class,
+BaseModel - Main Module
+BaseModel Main parent class.
 """
 
 import uuid
 from datetime import datetime
-
 
 class BaseModel:
     """
