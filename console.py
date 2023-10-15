@@ -32,7 +32,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_quit(self, line):
-        """ Quit command for exiting the interpreter program.
+        """ Quit command to exit program.
         """
         return True
 
