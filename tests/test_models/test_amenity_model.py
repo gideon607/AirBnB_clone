@@ -21,10 +21,11 @@ class TestAmenity(unittest.TestCase):
         new_amenity = Amenity()
         self.assertTrue("name" in new_amenity.__dir__())
 
-   def test_Amenity_inheritence(self):
+    def test_Amenity_inheritence(self):
         """
             Tests for Amenity class Inherits from BaseModel
-        """        new_amenity = Amenity()
+        """
+        new_amenity = Amenity()
         self.assertIsInstance(new_amenity, BaseModel)
 
     def test_Amenity_attribute_type(self):

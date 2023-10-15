@@ -13,7 +13,7 @@ class BaseModel:
     serialization and also deserialzation of several instances.
     """
     def __int__(self, *args, **kwargs):
-        """ INtialization of BaseModel instance"""
+        """ Intialization of BaseModel instance"""
         if (len(kwargs) == 0):
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
