@@ -6,13 +6,14 @@ BaseModel Main parent class.
 
 import uuid
 from datetime import datetime
+import models
 
 class BaseModel:
     """
     BaseModel class main parent class for intial, 
     serialization and also deserialzation of several instances.
     """
-    def __int__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         """ Intialization of BaseModel instance"""
         if (len(kwargs) == 0):
             self.id = str(uuid.uuid4())

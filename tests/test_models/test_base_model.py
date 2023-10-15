@@ -23,7 +23,7 @@ class TestBase(unittest.TestCase):
         self.my_model = BaseModel()
         self.my_model.name = "Binita Rai"
 
-    def TearDown(self):
+    def tearDown(self):
         """
             Removes instance.
         """
@@ -140,8 +140,10 @@ class TestBase(unittest.TestCase):
             Test if the new_model's and my_model's
             dictionary values are the same.
         """
-        my_model_dict = self.my_model.to_dict()
-        new_model = BaseModel(**my_model_dict)
+        my_model = BaseModel()
+        new_model = BaseModel()
+
+        my_model_dict = my_model.to_dict()
         new_model_dict = new_model.to_dict()
         self.assertEqual(my_model_dict, new_model_dict)
 
