@@ -1,45 +1,46 @@
 #!/usr/bin/python3
 """
-    Defines the class FileStorage Module
+    Defines the FileStorage class Module 
 """
 import json
 
 
 class FileStorage:
     """
-        Serializes instances by JSON file and deserializes by JSON file.
+        Serializes the instances of a JSON file and deserializes of a JSON file.
     """
     __file_path = "file.json"
     __objects = {}
 
-    def all(self):
-        """
-            Returns the dictionary on filestorage
-        """
-        return self.__objects
 
     def new(self, obj):
         """
-        Sets a  new obj into __objects
+        Sets the new obj into __objects
         """
         key = str(obj.__class__.__name__) + "." + str(obj.id)
         value_dict = obj
         FileStorage.__objects[key] = value_dict
 
+    def all(self):
+        """
+        Returns the new dictionary on filestorage
+        """
+        return self.__objects
+    
     def save(self):
         """
-        Serializes the objects into the JSON file
+        Serializes the new objects into the JSON file
         """
-        objects_dict = {}
+        object_dict = {}
         for key, val in FileStorage.__objects.items():
-            objects_dict[key] = val.to_dict()
+            object_dict[key] = val.to_dict()
 
         with open(FileStorage.__file_path, mode='w', encoding="UTF8") as fd:
-            json.dump(objects_dict, fd)
+            json.dump(object_dict, fd)
 
     def reload(self):
         """
-        Reloads the file and deserializes JSON into __objects class
+        Reups file and deserializes the JSON into __objects class
         """
 
         try:
